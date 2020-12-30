@@ -8,9 +8,9 @@ import (
 	"free5gc/lib/pfcp"
 	"free5gc/lib/pfcp/pfcpType"
 	"free5gc/lib/pfcp/pfcpUdp"
-	"free5gc/src/smf/context"
-	smf_pfcp "free5gc/src/smf/pfcp"
-	"free5gc/src/smf/pfcp/udp"
+	"smf/context"
+	smf_pfcp "smf/pfcp"
+	"smf/pfcp/udp"
 
 	"github.com/stretchr/testify/require"
 )

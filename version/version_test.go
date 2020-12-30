@@ -2,9 +2,9 @@ package version_test
 
 import (
 	"fmt"
-	"free5gc/src/smf/version"
 	"os/exec"
 	"runtime"
+	"smf/version"
 	"strings"
 	"testing"
 

@@ -11,8 +11,8 @@ package eventexposure
 
 import (
 	"free5gc/lib/logger_util"
-	"free5gc/src/smf/logger"
 	"net/http"
+	"smf/logger"
 	"strings"
 
 	"github.com/gin-gonic/gin"

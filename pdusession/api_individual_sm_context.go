@@ -13,12 +13,13 @@ import (
 	"free5gc/lib/http_wrapper"
 	"free5gc/lib/openapi"
 	"free5gc/lib/openapi/models"
-	"free5gc/src/smf/logger"
-	"free5gc/src/smf/producer"
-	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
+	"smf/logger"
+	"smf/producer"
 	"strings"
+
+	"github.com/gin-gonic/gin"
 )
 
 // HTTPReleaseSmContext - Release SM Context

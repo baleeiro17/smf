@@ -12,9 +12,9 @@ package main
 import (
 	"fmt"
 	"free5gc/src/app"
-	"free5gc/src/smf/logger"
-	"free5gc/src/smf/service"
-	"free5gc/src/smf/version"
+	"smf/logger"
+	"smf/service"
+	"smf/version"
 	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli"
 	"os"

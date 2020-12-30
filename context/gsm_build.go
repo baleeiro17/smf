@@ -6,8 +6,8 @@ import (
 	"free5gc/lib/nas/nasConvert"
 	"free5gc/lib/nas/nasMessage"
 	"free5gc/lib/nas/nasType"
-	"free5gc/src/smf/logger"
 	"net"
+	"smf/logger"
 
 	// "free5gc/lib/nas/nasType"
 	"free5gc/lib/openapi/models"

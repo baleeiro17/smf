@@ -11,9 +11,9 @@ import (
 	"free5gc/lib/openapi/Npcf_SMPolicyControl"
 	"free5gc/lib/openapi/models"
 	"free5gc/lib/pfcp/pfcpType"
-	"free5gc/src/smf/logger"
 	"net"
 	"net/http"
+	"smf/logger"
 	"sync"
 	"sync/atomic"
 

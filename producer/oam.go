@@ -3,8 +3,8 @@ package producer
 import (
 	"free5gc/lib/http_wrapper"
 	"free5gc/lib/openapi/models"
-	"free5gc/src/smf/context"
 	"net/http"
+	"smf/context"
 	"strconv"
 )
 

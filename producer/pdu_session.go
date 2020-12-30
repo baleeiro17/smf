@@ -13,11 +13,11 @@ import (
 	"free5gc/lib/openapi/Nudm_SubscriberDataManagement"
 	"free5gc/lib/openapi/models"
 	"free5gc/lib/pfcp/pfcpType"
-	"free5gc/src/smf/consumer"
-	smf_context "free5gc/src/smf/context"
-	"free5gc/src/smf/logger"
-	pfcp_message "free5gc/src/smf/pfcp/message"
 	"net/http"
+	"smf/consumer"
+	smf_context "smf/context"
+	"smf/logger"
+	pfcp_message "smf/pfcp/message"
 
 	"github.com/antihax/optional"
 )

@@ -5,8 +5,8 @@ import (
 	"free5gc/lib/openapi"
 	"free5gc/lib/openapi/Nsmf_PDUSession"
 	"free5gc/lib/openapi/models"
-	"free5gc/src/smf/logger"
 	"net/http"
+	"smf/logger"
 )
 
 func SendSMContextStatusNotification(uri string) (*models.ProblemDetails, error) {

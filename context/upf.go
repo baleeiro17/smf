@@ -5,10 +5,10 @@ import (
 	"free5gc/lib/idgenerator"
 	"free5gc/lib/pfcp/pfcpType"
 	"free5gc/lib/pfcp/pfcpUdp"
-	"free5gc/src/smf/logger"
 	"math"
 	"net"
 	"reflect"
+	"smf/logger"
 	"sync"
 
 	"github.com/google/uuid"

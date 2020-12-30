@@ -2,10 +2,10 @@ package context
 
 import (
 	"free5gc/lib/pfcp/pfcpType"
-	"free5gc/src/smf/factory"
-	"free5gc/src/smf/logger"
 	"net"
 	"reflect"
+	"smf/factory"
+	"smf/logger"
 )
 
 // UserPlaneInformation store userplane topology

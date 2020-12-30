@@ -11,7 +11,7 @@ package pdusession
 
 import (
 	"free5gc/lib/logger_util"
-	"free5gc/src/smf/logger"
+	"smf/logger"
 	"net/http"
 	"strings"
 

@@ -7,9 +7,9 @@ import (
 	"free5gc/lib/openapi/Nnrf_NFDiscovery"
 	"free5gc/lib/openapi/Nudm_SubscriberDataManagement"
 	"free5gc/lib/openapi/models"
-	smf_context "free5gc/src/smf/context"
-	"free5gc/src/smf/logger"
 	"net/http"
+	smf_context "smf/context"
+	"smf/logger"
 
 	"strings"
 	"time"

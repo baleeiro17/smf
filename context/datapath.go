@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"free5gc/lib/pfcp/pfcpType"
 	"free5gc/lib/util_3gpp"
-	"free5gc/src/smf/logger"
+	"smf/logger"
 	"strconv"
 )
 

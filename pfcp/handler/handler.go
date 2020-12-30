@@ -7,10 +7,10 @@ import (
 	"free5gc/lib/pfcp"
 	"free5gc/lib/pfcp/pfcpType"
 	"free5gc/lib/pfcp/pfcpUdp"
-	smf_context "free5gc/src/smf/context"
-	"free5gc/src/smf/logger"
-	pfcp_message "free5gc/src/smf/pfcp/message"
-	"free5gc/src/smf/producer"
+	smf_context "smf/context"
+	"smf/logger"
+	pfcp_message "smf/pfcp/message"
+	"smf/producer"
 )
 
 func HandlePfcpHeartbeatRequest(msg *pfcpUdp.Message) {

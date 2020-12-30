@@ -13,9 +13,9 @@ import (
 	"free5gc/lib/http_wrapper"
 	"free5gc/lib/openapi"
 	"free5gc/lib/openapi/models"
-	"free5gc/src/smf/logger"
-	"free5gc/src/smf/producer"
 	"net/http"
+	"smf/logger"
+	"smf/producer"
 
 	"github.com/gin-gonic/gin"
 )

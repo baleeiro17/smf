@@ -3,7 +3,7 @@ package context
 import (
 	"fmt"
 	"free5gc/lib/openapi/models"
-	"free5gc/src/smf/factory"
+	"smf/factory"
 	"time"
 )
 

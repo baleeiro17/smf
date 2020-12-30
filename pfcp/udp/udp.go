@@ -6,8 +6,8 @@ import (
 
 	"free5gc/lib/pfcp"
 	"free5gc/lib/pfcp/pfcpUdp"
-	"free5gc/src/smf/context"
-	"free5gc/src/smf/logger"
+	"smf/context"
+	"smf/logger"
 )
 
 const MaxPfcpUdpDataSize = 1024

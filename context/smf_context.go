@@ -15,8 +15,8 @@ import (
 	"free5gc/lib/openapi/models"
 	"free5gc/lib/pfcp/pfcpType"
 	"free5gc/lib/pfcp/pfcpUdp"
-	"free5gc/src/smf/factory"
-	"free5gc/src/smf/logger"
+	"smf/factory"
+	"smf/logger"
 )
 
 func init() {
