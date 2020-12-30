@@ -141,8 +141,8 @@ func (pfcpServer *PfcpServer) RemoveTransaction(tx *pfcp.Transaction) (err error
 
 	logger.PFCPLog.Traceln("In RemoveTransaction")
 	consumerAddr := tx.ConsumerAddr
-	txTable := pfcpServer.ConsumerTable[consumerAddr]
 	pfcpServer.Mutex.Lock()
+	txTable := pfcpServer.ConsumerTable[consumerAddr]
 	if txTmp, exist := txTable[tx.SequenceNumber]; exist {
 		tx = txTmp
 
@@ -179,44 +179,44 @@ func (pfcpServer *PfcpServer) StartTxLifeCycle(tx *pfcp.Transaction) {
 
 func (pfcpServer *PfcpServer) FindTransaction(msg *pfcp.Message, addr *net.UDPAddr) (*pfcp.Transaction, error) {
 	var tx *pfcp.Transaction
+	var err error
 
 	logger.PFCPLog.Traceln("In FindTransaction")
 	consumerAddr := addr.String()
+
+	pfcpServer.Mutex.Lock()
 
 	if msg.IsResponse() {
 		if _, exist := pfcpServer.ConsumerTable[consumerAddr]; !exist {
 			logger.PFCPLog.Warnln("In FindTransaction")
 			logger.PFCPLog.Warnf("Can't find txTable from consumer addr: [%s]", consumerAddr)
-			return nil, fmt.Errorf("FindTransaction Error: txTable not found")
+			err = fmt.Errorf("FindTransaction Error: txTable not found")
+		} else {
+			txTable := pfcpServer.ConsumerTable[consumerAddr]
+			seqNum := msg.Header.SequenceNumber
+
+			if _, exist := txTable[seqNum]; !exist {
+				logger.PFCPLog.Warnln("In FindTransaction")
+				logger.PFCPLog.Warnln("Consumer Addr: ", consumerAddr)
+				logger.PFCPLog.Warnf("Can't find tx [%d] from txTable: ", seqNum)
+				err = fmt.Errorf("FindTransaction Error: sequence number [%d] not found", seqNum)
+			} else {
+				tx = txTable[seqNum]
+			}
 		}
-
-		txTable := pfcpServer.ConsumerTable[consumerAddr]
-		seqNum := msg.Header.SequenceNumber
-
-		if _, exist := txTable[seqNum]; !exist {
-			logger.PFCPLog.Warnln("In FindTransaction")
-			logger.PFCPLog.Warnln("Consumer Addr: ", consumerAddr)
-			logger.PFCPLog.Warnf("Can't find tx [%d] from txTable: ", seqNum)
-			return nil, fmt.Errorf("FindTransaction Error: sequence number [%d] not found", seqNum)
-		}
-
-		tx = txTable[seqNum]
 	} else if msg.IsRequest() {
-		if _, exist := pfcpServer.ConsumerTable[consumerAddr]; !exist {
-			return nil, nil
+		if _, exist := pfcpServer.ConsumerTable[consumerAddr]; exist {
+			txTable := pfcpServer.ConsumerTable[consumerAddr]
+			seqNum := msg.Header.SequenceNumber
+
+			if _, exist := txTable[seqNum]; exist {
+				tx = txTable[seqNum]
+			}
 		}
-
-		txTable := pfcpServer.ConsumerTable[consumerAddr]
-		seqNum := msg.Header.SequenceNumber
-
-		if _, exist := txTable[seqNum]; !exist {
-			return nil, nil
-		}
-
-		tx = txTable[seqNum]
 	}
+	pfcpServer.Mutex.Unlock()
 	logger.PFCPLog.Traceln("End FindTransaction")
-	return tx, nil
+	return tx, err
 
 }
 
